@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3000;
 
-const db = require("./models");
+const Workout = require("./models/Workout");
 
 const app = express();
 
@@ -18,9 +18,9 @@ app.use(express.static("public"));
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workoutdb", { useNewUrlParser: true });
 
 app.get("/get", (req, res) => {
-  db.Workout.find({})
-    .then(dbNote => {
-      res.json(dbNote);
+  Workout.find({})
+    .then(dbWO => {
+      res.json(dbWO);
     })
     .catch(err => {
       res.json(err);
@@ -28,10 +28,10 @@ app.get("/get", (req, res) => {
 });
 
 app.post("/submit", ({ body }, res) => {
-  db.Workout.create(body)
-    .then(({ _id }) => db.User.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
-    .then(dbUser => {
-      res.json(dbUser);
+  const newWorkOut = new Workout(body);
+  Workout.create(newWorkOut)
+    .then(dbWO => {
+      res.json(dbWO);
     })
     .catch(err => {
       res.json(err);
