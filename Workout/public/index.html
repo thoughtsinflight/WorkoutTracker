@@ -27,28 +27,32 @@
             <div class="card-body">
               <form action="/get" method="get">
                 <h4 class="card-title">Current Workout</h4>
-                <input type="text" name="name" placeholder="Name">
-                <textarea type="text" name="body" placeholder="Current Work Out"></textarea>
+                <input type="text" id="workOutName" name="name" placeholder="Name">
+                <textarea type="text" id="workOutBody" name="body" placeholder="Current Work Out"></textarea>
                 <button class="btn btn-primary">Work Out!</button>
               </form>
             </div>
           </div>
         </div>
         <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <form action="/add" method="update">
-                  <h4 class="card-title">Add to Work Out</h4>
-                  <input type="text" name="name" placeholder="Name">
-                  <textarea type="text" name="body" placeholder="Add another Exsercise"></textarea>
-                  <button class="btn btn-primary">Add</button>
-                </form>
-              </div>
+          <div class="card">
+            <div class="card-body">
+              <form action="/add" method="update">
+                <h4 class="card-title">Add to Work Out</h4>
+                <input type="text" name="name" placeholder="Name">
+                <textarea type="text" name="body" placeholder="Add another Exsercise"></textarea>
+                <button class="btn btn-primary">Add</button>
+              </form>
             </div>
           </div>
+        </div>
       </div>
     </div>
   </div>
 </body>
+<script src="../server.js"></script>
 <script src="./assets/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
 </html>
