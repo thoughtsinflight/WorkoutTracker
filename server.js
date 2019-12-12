@@ -22,8 +22,6 @@ mongoose.connect(MONGODB_URI);
 app.get("/get", (req, res) => {
   Workout.find({})
     .then(dbWO => {
-      $("#workOutName").text(`${dbWO.name}`);
-      $("#workOutBody").text(`${dbWO.body}`);
       res.json(dbWO);
     })
     .catch(err => {
