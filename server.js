@@ -24,7 +24,7 @@ app.get("/get", (req, res) => {
     .then(dbWO => {
       $("#workOutName").text(`${dbWO.name}`);
       $("#workOutBody").text(`${dbWO.body}`);
-      // res.json(dbWO);
+      res.json(dbWO);
     })
     .catch(err => {
       res.json(err);
